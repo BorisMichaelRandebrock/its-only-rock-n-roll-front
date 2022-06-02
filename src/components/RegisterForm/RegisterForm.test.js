@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import store from "../../redux/store/store";
 import RegisterForm from "./RegisterForm";
 
 describe("Given a RegisterForm component", () => {
@@ -9,9 +11,9 @@ describe("Given a RegisterForm component", () => {
       const inputText = "hello";
 
       render(
-        <div className="App">
+        <Provider store={store}>
           <RegisterForm />
-        </div>
+        </Provider>
       );
 
       const label = screen.getByLabelText(expectedLabel);
@@ -28,9 +30,9 @@ describe("Given a RegisterForm component", () => {
       const inputText = "hello";
 
       render(
-        <div className="App">
+        <Provider store={store}>
           <RegisterForm />
-        </div>
+        </Provider>
       );
 
       const name = screen.getByLabelText(nameLabel);

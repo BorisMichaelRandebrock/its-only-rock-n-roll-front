@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { registerThunk } from "../../redux/thunks/userThunks";
+import { useDispatch } from "react-redux";
+import { registerThunk } from "../../redux/thunks/userThunks";
 import RegisterFormStyle from "./RegisterFormStyle";
 
 const RegisterForm = () => {
-  //  const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const blankFields = {
     name: "",
@@ -36,7 +36,7 @@ const RegisterForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // dispatch(registerThunk(userData));
+    dispatch(registerThunk(userData));
     setUserData(blankFields);
   };
 
