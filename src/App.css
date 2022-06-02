@@ -1,4 +1,8 @@
-/* .App {
+/* import styled from "styled-components";
+import theme from "../theme/theme";
+import backgroundImage from "./images/mobile-background"; */
+/* 
+.App {
   text-align: center;
 }
 
@@ -36,3 +40,21 @@
     transform: rotate(360deg);
   }
 } */
+/* const ContainerStyle = styled.div`
+  background: linear-gradient(
+      180deg,
+      rgba(${theme.bluelightRgb}, 0.95) 0%,
+      rgba(${theme.blueDarkRgb}, 0.95) 100%
+    ),
+    url(${backgroundImage});
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+`; */

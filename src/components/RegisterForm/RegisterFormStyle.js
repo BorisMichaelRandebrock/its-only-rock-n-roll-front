@@ -1,37 +1,17 @@
 import styled from "styled-components";
-import GlobalStyle from "../../theme/GlobalStyle";
-const RegisterFormStyle = styled.div`
-  * {
-    box-sizing: border-box;
-  }
 
+const RegisterFormStyle = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.2em;
 
-  body {
-    font-family: "Nunito", sans-serif;
-    margin: 0;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-  }
-
-  a {
-    text-decoration: none;
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  /* 
-
 
   label {
     display: flex;
@@ -57,7 +37,7 @@ const RegisterFormStyle = styled.div`
     background-color: #1da1f2;
     color: #f5f8fa;
     cursor: pointer;
-  } */
+  }
 `;
 
 export default RegisterFormStyle;

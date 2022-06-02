@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.2",
+    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
-    "install": "^0.13.0",
-    "npm": "^8.11.0",
+    "jwt-decode": "^3.1.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-redux": "^8.0.2",
+    "react-redux": "^8.0.1",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
@@ -21,9 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-coverage": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
-    "test-coverage": "react-scripts test --coverage --watchAll=false"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -44,20 +44,17 @@
     ]
   },
   "devDependencies": {
-    "husky": "^7.0.0"
+    "husky": "^7.0.0",
+    "msw": "^0.39.2"
   },
   "jest": {
     "collectCoverageFrom": [
-      "!src/index.tsx",
-      "!src/reportWebVitals.ts",
-      "!src/setupTests.tsx",
-      "!.eslintrc.tsx",
-      "!coverage/*/.tsx",
-      "!src/**/*.test.tsx",
-      "!src/**/*.test.tsx.snap",
-      "!src/react-app-env.d.ts",
-      "!src/index.js",
-      "!src/reportWebVitals.js"
+      "*.js",
+      "./**/*.js",
+      "!.eslintrc.js",
+      "!coverage/**/*.js",
+      "!./src/index.js",
+      "!./src/reportWebVitals.js"
     ]
   }
 }
