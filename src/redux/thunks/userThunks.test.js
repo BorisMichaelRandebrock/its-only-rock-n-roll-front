@@ -11,7 +11,7 @@ describe("Given the userThunks function", () => {
       const dispatch = jest.fn();
       const inputData = { username: "mockUser", password: "4321" };
 
-      axios.post = jest
+      axios.post = await jest
         .fn()
         .mockResolvedValue({ data: { token: "mockToken" }, status: 200 });
 
