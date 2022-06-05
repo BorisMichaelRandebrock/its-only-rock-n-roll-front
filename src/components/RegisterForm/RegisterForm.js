@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerThunk } from "../../redux/thunks/userThunks";
-import RegisterFormStyle from "./RegisterFormStyle";
+import RegisterFormStyle from "./../PageStyle";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -43,6 +43,12 @@ const RegisterForm = () => {
 
   return (
     <RegisterFormStyle>
+      <img
+        className="logo"
+        alt="logo showing an A with a guitaras the a-slash"
+        src="./images/logo-a.png"
+      />
+      <h1>it`s only rock 'n' roll</h1>
       <form autoComplete="off" noValidate onSubmit={onSubmit}>
         <label htmlFor="name">Name</label>
         <input
@@ -50,7 +56,7 @@ const RegisterForm = () => {
           id="name"
           value={userData.name}
           onChange={onChange}
-          placeholder="Name"
+          placeholder="name"
         />
         <label htmlFor="username">Username</label>
         <input
@@ -58,7 +64,7 @@ const RegisterForm = () => {
           id="username"
           value={userData.username}
           onChange={onChange}
-          placeholder="Username"
+          placeholder="username"
         />
         <label htmlFor="password">Password</label>
         <input
@@ -66,13 +72,15 @@ const RegisterForm = () => {
           type="password"
           value={userData.password}
           onChange={onChange}
-          placeholder="Password"
+          placeholder="password"
         />
         <button disabled={buttonDisabled} type="submit" className="form-button">
           register
         </button>
-        <span>Already have account?</span>
-        <Link to="/login">Login</Link>
+        <span>already have account?</span>
+        <Link to="/login">
+          <span>login</span>
+        </Link>
       </form>
     </RegisterFormStyle>
   );

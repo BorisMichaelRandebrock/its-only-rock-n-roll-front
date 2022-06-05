@@ -2,7 +2,7 @@ import { /* useEffect, */ useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { loginThunk } from "../../redux/thunks/userThunks";
-import LoginFormStyle from "./LoginFormStyle";
+import LoginFormStyle from "./../PageStyle";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -37,6 +37,12 @@ const LoginForm = () => {
 
   return (
     <LoginFormStyle>
+      <img
+        className="logo"
+        alt="logo showing an A with a guitaras the a-slash"
+        src="./images/logo-a.png"
+      />
+      <h1>it`s only rock 'n' roll</h1>
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -44,7 +50,7 @@ const LoginForm = () => {
           id="username"
           value={formValue.username}
           onChange={handleInputChange}
-          placeholder="Username"
+          placeholder="username"
         />
         <label htmlFor="password">Password</label>
         <input
@@ -52,7 +58,7 @@ const LoginForm = () => {
           id="password"
           value={formValue.password}
           onChange={handleInputChange}
-          placeholder="Password"
+          placeholder="password"
         />
         <button
           type="submit"
@@ -61,7 +67,9 @@ const LoginForm = () => {
           Login
         </button>
 
-        <Link to="/register">register</Link>
+        <Link to="/register">
+          <span>register</span>
+        </Link>
       </form>
     </LoginFormStyle>
   );
