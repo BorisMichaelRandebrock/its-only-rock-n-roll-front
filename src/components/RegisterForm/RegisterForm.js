@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { registerThunk } from "../../redux/thunks/userThunks";
 import RegisterFormStyle from "./RegisterFormStyle";
 
@@ -70,6 +71,8 @@ const RegisterForm = () => {
         <button disabled={buttonDisabled} type="submit" className="form-button">
           register
         </button>
+        <span>Already have account?</span>
+        <Link to="/login">Login</Link>
       </form>
     </RegisterFormStyle>
   );
