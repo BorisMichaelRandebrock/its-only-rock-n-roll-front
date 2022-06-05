@@ -13,6 +13,13 @@ const AppStyle = styledComponents.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+    margin: 0;
+
+
+
+
 `;
 
 function App() {
@@ -33,7 +40,6 @@ function App() {
   return (
     <>
       <AppStyle>
-        <h1>it`s only rock 'n' roll</h1>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/register" element={<RegisterForm />} />
