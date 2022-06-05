@@ -1,5 +1,6 @@
 import { /* useEffect, */ useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { loginThunk } from "../../redux/thunks/userThunks";
 import LoginFormStyle from "./LoginFormStyle";
 
@@ -59,6 +60,8 @@ const LoginForm = () => {
         >
           Login
         </button>
+
+        <Link to="/register">register</Link>
       </form>
     </LoginFormStyle>
   );

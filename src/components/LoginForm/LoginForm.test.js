@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-// import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
 import LoginForm from "./LoginForm";
 
@@ -12,9 +12,11 @@ describe("Given a LoginForm component", () => {
       const value = "Hello";
 
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const label = screen.getByLabelText(labelToFind);
@@ -31,9 +33,11 @@ describe("Given a LoginForm component", () => {
       const inputText = "hello";
 
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const username = screen.getByLabelText(usernameLabel);
@@ -54,9 +58,11 @@ describe("Given a LoginForm component", () => {
       const inputText = "Boo";
 
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const username = screen.getByLabelText(usernameLabel);
@@ -78,9 +84,11 @@ describe("Given a LoginForm component", () => {
       const inputText2 = "123";
 
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const username = screen.getByLabelText(usernameLabel);

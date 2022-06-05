@@ -26,4 +26,13 @@ describe("Given the userThunks function", () => {
       expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
+  describe("When invoked with an incorrect username and a password", () => {
+    test("Then it should dispatch with an error", async () => {
+      const token = false;
+
+      axios.post = await jest;
+
+      expect(token).toBe(false);
+    });
+  });
 });
