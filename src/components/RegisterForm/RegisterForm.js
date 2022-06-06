@@ -77,7 +77,7 @@ const RegisterForm = () => {
         <button disabled={buttonDisabled} type="submit" className="form-button">
           register
         </button>
-        <span>already have account?</span>
+
         <Link to="/login">
           <span>login</span>
         </Link>

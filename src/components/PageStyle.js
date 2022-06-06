@@ -15,7 +15,7 @@ const LoginFormStyle = styled.div`
   }
   h1 {
     font-family: "Caveat Brush", cursive;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
 
   label {
@@ -26,7 +26,7 @@ const LoginFormStyle = styled.div`
     visibility: hidden;
   }
   .logo {
-    margin-top: 60px;
+    margin-top: 50px;
   }
   input {
     height: 55px;
@@ -34,6 +34,7 @@ const LoginFormStyle = styled.div`
     font-size: 0.9em;
     border-radius: 10px;
     align-items: center;
+    margin: 0;
   }
 
   .form-button {
