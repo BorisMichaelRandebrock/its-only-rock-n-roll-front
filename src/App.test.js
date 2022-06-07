@@ -20,7 +20,7 @@ jest.mock("react-router-dom", () => ({
 
 describe("Given an App component", () => {
   describe("When it's rendered", () => {
-    test("Then it should navigate to /", () => {
+    test("Then it should navigate to /songlist", () => {
       const userMockSlice = createSlice({
         name: "user",
         initialState: { username: "josep", logged: true },
@@ -38,7 +38,7 @@ describe("Given an App component", () => {
         </Provider>
       );
 
-      expect(mockUseNavigate).toHaveBeenCalledWith("/");
+      expect(mockUseNavigate).toHaveBeenCalledWith("/songlist");
     });
   });
 });

@@ -18,7 +18,5 @@ export const loginThunk = (userData) => async (dispatch) => {
       localStorage.setItem("token", data.token);
       dispatch(loginActionCreator({ id, username }));
     }
-  } catch (error) {
-    return error;
-  }
+  } catch (error) {}
 };

@@ -1,11 +1,11 @@
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
-import LoginFormStyle from "../../components/PageStyle";
+import PageStyle from "../../components/PageStyle";
 
 const UserRegisterPage = () => {
   return (
-    <LoginFormStyle>
+    <PageStyle>
       <RegisterForm />
-    </LoginFormStyle>
+    </PageStyle>
   );
 };
 
