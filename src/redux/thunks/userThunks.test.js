@@ -34,5 +34,25 @@ describe("Given the userThunks function", () => {
 
       expect(token).toBe(false);
     });
+    test("Then it should dispatch the loginActionCreator with the username and the id", async () => {
+      const dispatch = jest.fn();
+      const inputData = { username: "mockUser", password: "4321" };
+
+      axios.post = await jest
+        .fn()
+        .mockResolvedValue({ data: { token: "mockToken" }, status: 500 });
+
+      const userData = { id: "15234", username: "mockUser" };
+
+      const expectedAction = loginActionCreator(userData);
+
+      const thunk = loginThunk(inputData);
+
+      await thunk(dispatch);
+      // const error = new Error();
+
+      expect(dispatch).not.toHaveBeenCalledWith(expectedAction);
+      // expect(error).toHaveBeenCalled();
+    });
   });
 });

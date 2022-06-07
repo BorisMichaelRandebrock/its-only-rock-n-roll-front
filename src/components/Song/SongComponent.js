@@ -1,11 +1,7 @@
-import SongStyle from "./SongStyleComponent";
+import SongStyle from "./SongStyle";
 import Button from "../Button/Button";
-import { Provider } from "react-redux";
-import SongListPage from "../../pages/SongListPage/SongListPage";
-import SongCollectionPage from "../../pages/SongCollectionPage/SongCollectionPage";
 
 const SongComponent = ({ song: artist, title }) => {
-  const { page } = Provider;
   return (
     <SongStyle>
       <ul className="song-collection">
@@ -16,20 +12,10 @@ const SongComponent = ({ song: artist, title }) => {
           <h3 className="song-collection__artist">Stones</h3>
         </li>
         <li className="song-collection__button">
-          {page === SongListPage ? (
-            <Button
-              text="i'll take it!"
-              styleType="primary"
-              action={() => {}}
-            />
-          ) : (
-            ""
-          )}
-          {page === SongCollectionPage ? (
-            <Button text="delete" styleType="secondary" />
-          ) : (
-            ""
-          )}
+          <Button text="i'll take it!" styleType="primary" action={() => {}} />
+        </li>
+        <li className="song-collection__button">
+          <Button text="delete" styleType="secondary" />
         </li>
       </ul>
     </SongStyle>

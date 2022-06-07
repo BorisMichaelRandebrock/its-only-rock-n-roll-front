@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerThunk } from "../../redux/thunks/userThunks";
-import RegisterFormStyle from "./../PageStyle";
+import PageStyle from "./../PageStyle";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <RegisterFormStyle>
+    <PageStyle>
       <img
         className="logo"
         alt="logo showing an A with a guitaras the a-slash"
@@ -82,7 +82,7 @@ const RegisterForm = () => {
           <span>login</span>
         </Link>
       </form>
-    </RegisterFormStyle>
+    </PageStyle>
   );
 };
 

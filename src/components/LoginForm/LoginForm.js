@@ -2,7 +2,7 @@ import { /* useEffect, */ useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { loginThunk } from "../../redux/thunks/userThunks";
-import LoginFormStyle from "./../PageStyle";
+import PageStyle from "./../PageStyle";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -13,15 +13,6 @@ const LoginForm = () => {
   };
 
   const [formValue, setFormValue] = useState(initialFormValue);
-  // const [buttonDisabled /* setButtonDisabled */] = useState(initialFormValue);
-
-  /*  useEffect(() => {
-    if (formValue.username !== "" && formValue.name) {
-      setButtonDisabled(false);
-    } else {
-      setButtonDisabled(true);
-    }
-  }, [formValue]); */
 
   const handleInputChange = (event) => {
     setFormValue({ ...formValue, [event.target.id]: event.target.value });
@@ -36,7 +27,7 @@ const LoginForm = () => {
   };
 
   return (
-    <LoginFormStyle>
+    <PageStyle>
       <img
         className="logo"
         alt="logo showing an A with a guitaras the a-slash"
@@ -60,10 +51,7 @@ const LoginForm = () => {
           onChange={handleInputChange}
           placeholder="password"
         />
-        <button
-          type="submit"
-          /* disabled={buttonDisabled} */ className="form-button"
-        >
+        <button type="submit" className="form-button">
           Login
         </button>
 
@@ -71,7 +59,7 @@ const LoginForm = () => {
           <span>register</span>
         </Link>
       </form>
-    </LoginFormStyle>
+    </PageStyle>
   );
 };
 

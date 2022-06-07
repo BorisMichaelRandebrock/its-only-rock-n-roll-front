@@ -35,7 +35,7 @@ function App() {
       const userInfo = jwtDecode(token);
 
       dispatch(loginActionCreator(userInfo));
-      navigate("/");
+      navigate("/songlist");
     }
   }, [dispatch, navigate, logged]);
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LoginFormStyle = styled.div`
+const PageStyle = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Nunito:wght@400;800&family=Quicksand&display=swap");
   width: 100%;
   display: flex;
@@ -26,7 +26,7 @@ const LoginFormStyle = styled.div`
     visibility: hidden;
   }
   .logo {
-    margin-top: 50px;
+    margin-top: 25px;
   }
   input {
     height: 55px;
@@ -69,4 +69,4 @@ const LoginFormStyle = styled.div`
   }
 `;
 
-export default LoginFormStyle;
+export default PageStyle;
