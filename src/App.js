@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import styledComponents from "styled-components";
 import "./App.css";
-import LoginForm from "./components/LoginForm/LoginForm";
-import RegisterForm from "./components/RegisterForm/RegisterForm";
 import Error404Page from "./pages/Error404Page/Error404Page";
+import SongCollectionPage from "./pages/SongCollectionPage/SongCollectionPage";
+import SongListPage from "./pages/SongListPage/SongListPage";
+import UserLoginPage from "./pages/UserLoginPage/UserLoginPage";
+import UserRegisterPage from "./pages/UserRegisterPage/UserRegisterPage";
 import { loginActionCreator } from "./redux/features/userSlice";
 
 const AppStyle = styledComponents.div`
@@ -42,8 +44,10 @@ function App() {
       <AppStyle>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<UserRegisterPage />} />
+          <Route path="/login" element={<UserLoginPage />} />
+          <Route path="/songlist" element={<SongListPage />} />
+          <Route path="/collection" element={<SongCollectionPage />} />
           <Route path="*" element={<Error404Page />} />
         </Routes>
       </AppStyle>
