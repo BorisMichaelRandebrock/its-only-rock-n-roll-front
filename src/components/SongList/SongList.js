@@ -1,19 +1,29 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadSongsThunk } from "../../redux/thunks/songThunks";
 import SongComponent from "../Song/SongComponent";
 import SongListStyles from "./SongListStyles";
 
 const SongList = () => {
-  const songs = useSelector((status) => status.song);
-  console.log(songs);
+  const songs = useSelector((state) => state.song);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      await dispatch(loadSongsThunk());
+    })();
+  }, [dispatch]);
 
   return (
     <SongListStyles>
-      <h2>List of Songs</h2>
-      {songs.map((song) => (
-        <li>
-          <SongComponent song={song} key={song.id} />
-        </li>
-      ))}
+      <h1>List of Songs</h1>
+      <ul>
+        {songs.map((song, index) => (
+          <li key={index}>
+            <SongComponent song={song} />
+          </li>
+        ))}
+      </ul>
     </SongListStyles>
   );
 };

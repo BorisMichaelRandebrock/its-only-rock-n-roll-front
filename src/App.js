@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import styledComponents from "styled-components";
-import "./App.css";
 import Error404Page from "./pages/Error404Page/Error404Page";
 import SongCollectionPage from "./pages/SongCollectionPage/SongCollectionPage";
 import SongListPage from "./pages/SongListPage/SongListPage";
@@ -15,14 +14,7 @@ const AppStyle = styledComponents.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
-    margin: 0;
-
-
-
-
-`;
+  `;
 
 function App() {
   const { logged } = useSelector((state) => state.user);

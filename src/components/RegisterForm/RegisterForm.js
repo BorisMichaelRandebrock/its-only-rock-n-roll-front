@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { registerThunk } from "../../redux/thunks/userThunks";
+import Button from "../Button/Button";
 import PageStyle from "./../PageStyle";
 
 const RegisterForm = () => {
@@ -43,12 +44,14 @@ const RegisterForm = () => {
 
   return (
     <PageStyle>
-      <img
-        className="logo"
-        alt="logo showing an A with a guitaras the a-slash"
-        src="./images/logo-a.png"
-      />
-      <h1>it`s only rock 'n' roll</h1>
+      <div className="header-logo">
+        <img
+          className="logo"
+          alt="logo showing an A with a guitaras the a-slash"
+          src="./images/logo-a.png"
+        />
+        <h1>it`s only rock 'n' roll</h1>
+      </div>
       <form autoComplete="off" noValidate onSubmit={onSubmit}>
         <label htmlFor="name">Name</label>
         <input
@@ -74,9 +77,17 @@ const RegisterForm = () => {
           onChange={onChange}
           placeholder="password"
         />
-        <button disabled={buttonDisabled} type="submit" className="form-button">
+        {/* <button disabled={buttonDisabled} type="submit" className="form-button">
           register
-        </button>
+        </button> */}
+        <div className="submit-button">
+          <Button
+            disabled={buttonDisabled}
+            type="submit"
+            className="form-button"
+            text="register"
+          />
+        </div>
 
         <Link to="/login">
           <span>login</span>

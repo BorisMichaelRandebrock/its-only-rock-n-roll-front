@@ -14,7 +14,9 @@ describe("Given the SongListPage component", () => {
           </Provider>
         </BrowserRouter>
       );
-      const testElement = screen.getByRole("button", { name: "i'll take it!" });
+      const testElement = screen.getByRole("heading", {
+        name: "List of Songs",
+      });
 
       expect(testElement).toBeInTheDocument();
     });

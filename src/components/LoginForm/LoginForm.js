@@ -1,12 +1,13 @@
 import { /* useEffect, */ useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginThunk } from "../../redux/thunks/userThunks";
+import Button from "../Button/Button";
 import PageStyle from "./../PageStyle";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const initialFormValue = {
     username: "",
     password: "",
@@ -24,16 +25,19 @@ const LoginForm = () => {
     }
     dispatch(loginThunk(formValue));
     setFormValue(initialFormValue);
+    navigate("/songlist");
   };
 
   return (
     <PageStyle>
-      <img
-        className="logo"
-        alt="logo showing an A with a guitaras the a-slash"
-        src="./images/logo-a.png"
-      />
-      <h1>it`s only rock 'n' roll</h1>
+      <div className="header-logo">
+        <img
+          className="logo"
+          alt="logo showing an A with a guitaras the a-slash"
+          src="./images/logo-a.png"
+        />
+        <h1>it`s only rock 'n' roll</h1>
+      </div>
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -51,9 +55,9 @@ const LoginForm = () => {
           onChange={handleInputChange}
           placeholder="password"
         />
-        <button type="submit" className="form-button">
-          Login
-        </button>
+        <div className="submit-button">
+          <Button type="submit" className="form-button" text="login" />
+        </div>
 
         <Link to="/register">
           <span>register</span>

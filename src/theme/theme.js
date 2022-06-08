@@ -1,10 +1,11 @@
 const theme = {
-  blueDark: "#42AEBA",
+  blueDark: "#00A8E8",
   bluelight: "#91D9D9",
   blueDarkRgb: "66,174,186",
   bluelightRgb: "145,217,217",
   white: "#FAF4ED",
   red: "#FF8C85",
+  redrgb: "255,140,133",
   yellow: "FFDF85",
   greenDark: "#8EBFA3",
   brownLight: "#E6D0BE",
