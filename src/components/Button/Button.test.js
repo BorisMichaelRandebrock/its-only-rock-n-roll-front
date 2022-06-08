@@ -30,7 +30,7 @@ describe("Given the Button component", () => {
 
       const colorPrimaryButton = screen.getByRole("button");
       expect(colorPrimaryButton).toHaveStyle(`
-        background: rgb(66, 174, 186);
+        background: rgb(0, 168, 232);
         color: rgb(250, 244, 237);
     `);
     });
@@ -41,8 +41,8 @@ describe("Given the Button component", () => {
 
     const colorPrimaryButton = screen.getByRole("button");
     expect(colorPrimaryButton).toHaveStyle(`
-      background: rgba(145, 217, 217, 0.25);
-      color: rgb(66, 174, 186);
+      background: rgba(255, 140, 133, 0.25);
+      color: rgb(255, 140, 133);
     `);
   });
 });

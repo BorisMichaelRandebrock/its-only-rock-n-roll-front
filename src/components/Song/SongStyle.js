@@ -2,20 +2,16 @@ import styled from "styled-components";
 import theme from "../../theme/theme";
 
 const SongStyle = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Nunito:wght@400;800&family=Quicksand&display=swap");
-  margin-left: 10px;
-  margin-right: 10px;
   border-radius: 10px;
-  align-content: center;
+  border: 2px solid black;
+  padding: 30px;
+  margin: 30px 0;
 
-  .song-container__header {
+  .song-container__header,
+  .song-collection__song {
+    display: flex;
     align-items: center;
-    position: relative;
     margin-bottom: 20px;
-  }
-
-  li {
-    gap: 10px;
   }
 
   .song-icon__container {
@@ -51,11 +47,12 @@ const SongStyle = styled.div`
   ul {
     padding: 0 20px;
   }
-  li {
+  .song-collection__button {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom: 10px;
+    gap: 10px;
   }
 
   .song-container__name {

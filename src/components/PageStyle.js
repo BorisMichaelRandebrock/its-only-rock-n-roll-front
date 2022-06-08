@@ -1,21 +1,10 @@
 import styled from "styled-components";
 
 const PageStyle = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Nunito:wght@400;800&family=Quicksand&display=swap");
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.2em;
-
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  h1 {
-    font-family: "Caveat Brush", cursive;
-    margin-bottom: 20px;
   }
 
   label {
@@ -29,10 +18,12 @@ const PageStyle = styled.div`
     margin-top: 25px;
   }
   input {
+    width: 100%;
     height: 55px;
     font-family: inherit;
     font-size: 0.9em;
     border-radius: 10px;
+    border: 2px solid black;
     align-items: center;
     margin: 0;
   }
@@ -54,18 +45,25 @@ const PageStyle = styled.div`
     justify-content: center;
     border-radius: 10px;
     border: none;
-    font-family: "Nunito", sans-serif;
     cursor: pointer;
   }
 
-  :active {
-    transform: translateY(2px);
-  }
   span {
-    color: darkgray;
     text-decoration: none;
     font-family: "Caveat Brush", cursive;
-    font-size: 1.2em;
+    font-size: 1.5em;
+  }
+
+  .submit-button {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .header-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
