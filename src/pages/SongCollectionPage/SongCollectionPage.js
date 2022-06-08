@@ -1,6 +1,6 @@
-import SongComponent from "../../components/Song/SongComponent";
+import SongList from "../../components/SongList/SongList";
 
 const SongCollectionPage = () => {
-  return <SongComponent />;
+  return <SongList />;
 };
 export default SongCollectionPage;

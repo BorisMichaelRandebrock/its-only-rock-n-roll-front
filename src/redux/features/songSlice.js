@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const songSlice = createSlice({
   name: "song",
-  initialState: [],
+  initialState: [{ artist: "bowie", songTitle: "the man who slosd the car" }],
   reducers: {
     loadSongs: (song, action) => ({ ...action.payload }),
   },
