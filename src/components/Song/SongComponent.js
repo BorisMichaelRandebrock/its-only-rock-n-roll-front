@@ -1,15 +1,15 @@
 import SongStyle from "./SongStyle";
 import Button from "../Button/Button";
 
-const SongComponent = ({ song: artist, title }) => {
+const SongComponent = ({ song: { artist, songTitle } }) => {
   return (
     <SongStyle>
       <ul className="song-collection">
         <li className="song-collection__header">
-          <h2 className="song-collection__title">its only rock n roll</h2>
+          <h3 className="song-collection__title">{`${songTitle}`}</h3>
         </li>
         <li className="song-collection__song">
-          <h3 className="song-collection__artist">Stones</h3>
+          <h4 className="song-collection__artist">{`${artist}`}</h4>
         </li>
         <li className="song-collection__button">
           <Button text="i'll take it!" styleType="primary" action={() => {}} />

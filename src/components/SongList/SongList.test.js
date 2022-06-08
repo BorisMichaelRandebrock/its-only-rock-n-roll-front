@@ -1,16 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import SongList from "./SongList";
 import store from "../../redux/store/store";
-import SongCollectionPage from "./SongCollectionPage";
+import { BrowserRouter } from "react-router-dom";
 
-describe("Given the SongCollectionPage component", () => {
+describe("Given the SongList component", () => {
   describe("When it is rendered", () => {
     test("Then it should render the SongComponent", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <SongCollectionPage />
+            <SongList />
           </Provider>
         </BrowserRouter>
       );
