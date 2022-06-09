@@ -1,7 +1,14 @@
 import SongStyle from "./SongStyle";
 import Button from "../Button/Button";
+import { useDispatch } from "react-redux";
+import { deleteSongThunk } from "../../redux/thunks/songThunks";
 
 const SongComponent = ({ song: { artist, songTitle } }) => {
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(deleteSongThunk(id));
+  };
+
   return (
     <SongStyle>
       <ul className="song-collection">
@@ -14,8 +21,8 @@ const SongComponent = ({ song: { artist, songTitle } }) => {
           <h3 className="song-collection__artist">{`${artist}`}</h3>
         </li>
         <li className="song-collection__button">
-          <Button text="i'll take it!" styleType="primary" action={() => {}} />
-          <Button text="delete" styleType="secondary" />
+          <Button text="i'll take it!" styleType="primary" />
+          <Button text="delete" styleType="secondary" onClick={handleDelete} />
         </li>
       </ul>
     </SongStyle>
