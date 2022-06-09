@@ -15,30 +15,10 @@ describe("Given the SongList component", () => {
         </BrowserRouter>
       );
       const testElement = screen.getByRole("heading", {
-        name: "List of Songs",
+        name: "Songlist",
       });
 
       expect(testElement).toBeInTheDocument();
     });
   });
 });
-
-// describe("Given a SongList component", () => {
-//   describe("When invoked", () => {
-//     it("Then it should render", () => {
-//       const expectedText = "List of Songs";
-
-//       render(
-//         <BrowserRouter>
-//           <Provider store={store}>
-//             <SongList />
-//           </Provider>
-//         </BrowserRouter>
-//       );
-
-//       const result = screen.getByRole("h2");
-
-//       expect(result).toBeInTheDocument(expectedText);
-//     });
-//   });
-// });

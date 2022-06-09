@@ -5,7 +5,7 @@ const SongComponent = ({ song: { artist, songTitle } }) => {
   return (
     <SongStyle>
       <ul className="song-collection">
-        <li className="song-container__header">
+        <li className="song-container__songtitle">
           <span className="material-symbols-rounded">music_note</span>
           <h2 className="song-collection__title">{`${songTitle}`}</h2>
         </li>

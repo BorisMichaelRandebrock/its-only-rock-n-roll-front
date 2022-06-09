@@ -16,7 +16,7 @@ const SongList = () => {
 
   return (
     <SongListStyles>
-      <h1>List of Songs</h1>
+      <h1>Songlist</h1>
       <ul>
         {songs.map((song, index) => (
           <li key={index}>
