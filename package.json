@@ -54,7 +54,8 @@
       "!.eslintrc.js",
       "!coverage/**/*.js",
       "!./src/index.js",
-      "!./src/reportWebVitals.js"
+      "!./src/reportWebVitals.js",
+      "!src/theme/*.js"
     ]
   }
 }

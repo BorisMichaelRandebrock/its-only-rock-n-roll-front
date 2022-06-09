@@ -5,9 +5,14 @@ const songSlice = createSlice({
   initialState: [],
   reducers: {
     loadSongs: (song, action) => [...action.payload],
+    deleteSong: (song, action) =>
+      song.filter((song) => song.id !== action.payload),
   },
 });
 
-export const { loadSongs: loadSongsActionCreator } = songSlice.actions;
+export const {
+  loadSongs: loadSongsActionCreator,
+  deleteSong: deleteSongActionCreator,
+} = songSlice.actions;
 
 export default songSlice.reducer;
