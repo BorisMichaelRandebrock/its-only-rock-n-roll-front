@@ -6,8 +6,10 @@ const SongStyle = styled.div`
   border: 2px solid black;
   padding: 30px;
   margin: 30px 0;
+  margin-left: 20px;
+  margin-right: 20px;
 
-  .song-container__header,
+  .song-container__songtitle,
   .song-collection__song {
     display: flex;
     align-items: center;
