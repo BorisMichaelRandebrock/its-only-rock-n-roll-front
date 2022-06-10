@@ -7,12 +7,12 @@ export const registerThunk = (userData) => async (dispatch) => {
 };
 
 export const loginThunk = (userData) => async (dispatch) => {
-  const { data } = await axios.post(
-    `${process.env.REACT_APP_API_URL}user/login`,
-    userData
-  );
-
   try {
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_API_URL}user/login`,
+      userData
+    );
+
     const username = jwtDecode(data.token);
     localStorage.setItem("token", data.token);
 
