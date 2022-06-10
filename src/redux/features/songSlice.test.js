@@ -23,7 +23,7 @@ describe("Given a songSLice reducer", () => {
 describe("Given a songSLice delete reducer", () => {
   describe("when the reducer is called with an action of type 'deleteSong'", () => {
     test("Then the item should be removed from the array", () => {
-      const initialState = [{ id: 1, name: "Song" }];
+      const initialState = [{ _id: 1, name: "Song" }];
       const expectedState = [];
 
       const deleteAction = deleteSongActionCreator(1);

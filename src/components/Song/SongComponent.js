@@ -3,10 +3,11 @@ import Button from "../Button/Button";
 import { useDispatch } from "react-redux";
 import { deleteSongThunk } from "../../redux/thunks/songThunks";
 
-const SongComponent = ({ song: { artist, songTitle } }) => {
+const SongComponent = ({ song: { artist, songTitle, _id } }) => {
   const dispatch = useDispatch();
-  const handleDelete = (id) => {
-    dispatch(deleteSongThunk(id));
+
+  const handleDelete = () => {
+    dispatch(deleteSongThunk(_id));
   };
 
   return (
@@ -22,7 +23,9 @@ const SongComponent = ({ song: { artist, songTitle } }) => {
         </li>
         <li className="song-collection__button">
           <Button text="i'll take it!" styleType="primary" />
-          <Button text="delete" styleType="secondary" onClick={handleDelete} />
+          <button className="secondary" onClick={handleDelete}>
+            delete
+          </button>
         </li>
       </ul>
     </SongStyle>

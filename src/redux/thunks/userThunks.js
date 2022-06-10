@@ -7,16 +7,15 @@ export const registerThunk = (userData) => async (dispatch) => {
 };
 
 export const loginThunk = (userData) => async (dispatch) => {
-  try {
-    const { data, status } = await axios.post(
-      `${process.env.REACT_APP_API_URL}user/login`,
-      userData
-    );
+  const { data } = await axios.post(
+    `${process.env.REACT_APP_API_URL}user/login`,
+    userData
+  );
 
-    if (status === 200) {
-      const { id, username } = jwtDecode(data.token);
-      localStorage.setItem("token", data.token);
-      dispatch(loginActionCreator({ id, username }));
-    }
+  try {
+    const username = jwtDecode(data.token);
+    localStorage.setItem("token", data.token);
+
+    dispatch(loginActionCreator(username));
   } catch (error) {}
 };
