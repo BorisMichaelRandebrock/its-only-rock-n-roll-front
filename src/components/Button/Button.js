@@ -1,10 +1,6 @@
 import ButtonStyle from "./ButtonStyle";
 
-const Button = ({ action, styleType, text }) => {
-  return (
-    <ButtonStyle styleType={styleType} onClick={action}>
-      {text}
-    </ButtonStyle>
-  );
+const Button = ({ styleType, text }) => {
+  return <ButtonStyle styleType={styleType}>{text}</ButtonStyle>;
 };
 export default Button;

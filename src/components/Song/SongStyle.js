@@ -106,6 +106,15 @@ const SongStyle = styled.div`
   .song-container__button {
     margin-top: 10px;
   }
+
+  .secondary {
+    background: rgba(${theme.redrgb}, 0.25);
+    color: ${theme.red};
+    border: 3px solid ${theme.red};
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+  }
 `;
 
 export default SongStyle;
