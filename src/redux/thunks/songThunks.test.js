@@ -30,39 +30,29 @@ describe("Given the deleteSongThunk function", () => {
       const token = "testToken";
       const dispatch = jest.fn();
 
-      const id = 1;
+      const response = { data: mockSongs, status: 200 };
+      axios.delete = jest.fn().mockResolvedValue(response);
 
-      const thunk = deleteSongThunk(id, token);
+      const expectedAction = deleteSongActionCreator(mockSongs[0].id);
+
+      const thunk = deleteSongThunk(mockSongs[0].id, token);
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalled();
-    });
-    test("Then the deleteSongThunkActionCreator function should be called with payload and delete-type", async () => {
-      const token = "testToken";
-      const dispatch = jest.fn();
-
-      const id = 1;
-
-      const thunk = deleteSongThunk(id, token);
-      await thunk(dispatch);
-
-      expect(dispatch).toHaveBeenCalledWith({
-        payload: 1,
-        type: "song/deleteSong",
-      });
-    });
-    test("Then the deleteSongThunkActionCreator function should be called with the statusCode 200", async () => {
-      const id = 2;
-      const dispatch = jest.fn();
-      const action = deleteSongActionCreator(id);
-
-      jest.spyOn(Storage.prototype, "getItem").mockRejectedValue(true);
-      axios.delete = jest.fn().mockResolvedValue({ status: 200 });
-
-      const thunk = deleteSongThunk(id);
-      await thunk(dispatch);
-
-      expect(dispatch).toHaveBeenCalledWith(action);
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
+  test("Then the deleteSongThunkActionCreator function should be called with the statusCode 200", async () => {
+    const id = 2;
+    const dispatch = jest.fn();
+    const action = deleteSongActionCreator(id);
+
+    jest.spyOn(Storage.prototype, "getItem").mockRejectedValue(true);
+    axios.delete = jest.fn().mockResolvedValue({ status: 200 });
+
+    const thunk = deleteSongThunk(id);
+    await thunk(dispatch);
+
+    expect(dispatch).toHaveBeenCalledWith(action);
+  });
 });
+//});
