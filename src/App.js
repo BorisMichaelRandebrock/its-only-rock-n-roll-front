@@ -10,6 +10,9 @@ import SongListPage from "./pages/SongListPage/SongListPage";
 import UserLoginPage from "./pages/UserLoginPage/UserLoginPage";
 import UserRegisterPage from "./pages/UserRegisterPage/UserRegisterPage";
 import { loginActionCreator } from "./redux/features/userSlice";
+import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
+import { loginThunk } from "./redux/thunks/userThunks";
+import { loadSongsThunk } from "./redux/thunks/songThunks";
 
 const AppStyle = styledComponents.div`
   display: flex;
@@ -24,13 +27,18 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token || logged) {
-      const userInfo = jwtDecode(token);
-
-      dispatch(loginActionCreator(userInfo));
-      navigate("/songlist");
+    if (token) {
+      const { username } = jwtDecode(token);
+      dispatch(loginActionCreator({ username }));
+      //navigate("/songlist");
+    } else {
+      navigate("/login");
     }
   }, [dispatch, navigate, logged]);
+
+  useEffect(() => {
+    dispatch(loadSongsThunk());
+  }, [dispatch]);
 
   return (
     <>
@@ -41,7 +49,7 @@ function App() {
           <Route path="/login" element={<UserLoginPage />} />
           <Route path="/songlist" element={<SongListPage />} />
           <Route path="/collection" element={<SongCollectionPage />} />
-          {/* <Route path="/details" element={<SongDetailsComponent />} /> */}
+          <Route path="/details/:id" element={<SongDetailsPage />} />
           <Route path="/404" element={<Error404Page />} />
           <Route path="*" element={<Error404Page />} />
         </Routes>

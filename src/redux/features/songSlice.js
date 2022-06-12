@@ -7,8 +7,7 @@ const songSlice = createSlice({
     loadSongs: (song, action) => [...action.payload],
     deleteSong: (song, action) =>
       song.filter((song) => song._id !== action.payload),
-    loadOneSong: (song, action) =>
-      song.filter((song) => song._id === action.payload),
+    loadOneSong: (song, action) => [action.payload],
   },
 });
 

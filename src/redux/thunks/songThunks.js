@@ -23,9 +23,9 @@ export const deleteSongThunk = (id) => async (dispatch) => {
 
 export const loadOneSongThunk = (id) => async (dispatch) => {
   const url = `${process.env.REACT_APP_API_URL}songs/${id}`;
-  const { status } = await axios.get(url);
+  try {
+    const { data: song } = await axios.get(url);
 
-  if (status === 200) {
-    dispatch(loadOneSongActionCreator(id));
-  }
+    dispatch(loadOneSongActionCreator(song));
+  } catch (error) {}
 };
