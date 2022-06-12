@@ -1,18 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loadSongsThunk } from "../../redux/thunks/songThunks";
+// import { useEffect } from "react";
+import { /*useDispatch,*/ useSelector } from "react-redux";
+// import { loadSongsThunk } from "../../redux/thunks/songThunks";
 import SongComponent from "../Song/SongComponent";
 import SongListStyles from "./SongListStyles";
 
 const SongList = () => {
   const songs = useSelector((state) => state.song);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    (async () => {
-      await dispatch(loadSongsThunk());
-    })();
-  }, [dispatch]);
 
   return (
     <SongListStyles>

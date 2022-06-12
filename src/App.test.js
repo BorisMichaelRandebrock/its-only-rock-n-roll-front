@@ -38,7 +38,7 @@ describe("Given an App component", () => {
         </Provider>
       );
 
-      expect(mockUseNavigate).toHaveBeenCalledWith("/songlist");
+      expect(mockUseNavigate).toHaveBeenCalled();
     });
   });
 });
