@@ -3,6 +3,7 @@ import { loadOneSongActionCreator } from "../features/oneSongSlice";
 import {
   deleteSongActionCreator,
   loadSongsActionCreator,
+  createSongActionCreator,
 } from "../features/songSlice";
 
 const url = process.env.REACT_APP_API_URL;
@@ -26,5 +27,13 @@ export const loadOneSongThunk = (id) => async (dispatch) => {
   try {
     const { data } = await axios.get(url);
     dispatch(loadOneSongActionCreator(data.song));
+  } catch (error) {}
+};
+
+export const createSongThunk = (song) => async (dispatch) => {
+  const url = `${process.env.REACT_APP_API_URL}songs`;
+  try {
+    const { data } = await axios.post(`${url}`, song);
+    dispatch(createSongActionCreator([data.song]));
   } catch (error) {}
 };
