@@ -1,6 +1,5 @@
 // import { useEffect } from "react";
 import { /*useDispatch,*/ useSelector } from "react-redux";
-// import { loadSongsThunk } from "../../redux/thunks/songThunks";
 import SongComponent from "../Song/SongComponent";
 import SongListStyles from "./SongListStyles";
 

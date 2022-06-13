@@ -1,9 +1,7 @@
+import { mockSongs } from "../../mocks/mockSongs";
+import oneSongSlice, { loadOneSongActionCreator } from "./oneSongSlice";
 import songSlice from "./songSlice";
-import {
-  loadSongsActionCreator,
-  deleteSongActionCreator,
-  loadOneSongActionCreator,
-} from "./songSlice";
+import { loadSongsActionCreator, deleteSongActionCreator } from "./songSlice";
 
 describe("Given a songSLice reducer", () => {
   describe("when the reducer is called with an action of type 'loadSongs'", () => {
@@ -42,31 +40,14 @@ describe("Given a songSLice delete reducer", () => {
 describe("Given a songSlice getOne reducer", () => {
   describe("when the reducer is called with an action of type 'loadOneSong'", () => {
     test("Then the requested item should be should shown", () => {
-      const initialState = [
-        { _id: 1, name: "Song" },
-        { _id: 2, name: "Song2" },
-        { _id: 3, name: "Song3" },
-      ];
-      const expectedState = [[{ _id: 1, name: "Song" }]];
-      const getSong = loadOneSongActionCreator([{ _id: 1, name: "Song" }]);
+      const initialState = {};
+      const expectedState = mockSongs[0];
 
-      const result = songSlice(initialState, getSong);
+      const getSong = loadOneSongActionCreator(mockSongs[0]);
+
+      const result = oneSongSlice(initialState, getSong);
 
       expect(result).toEqual(expectedState);
-    });
-  });
-  describe("when the reducer is called with an action type 'loadOneSong'", () => {
-    test("Then the requested song should be should shown", () => {
-      const initialState = [
-        { _id: 1, name: "Song" },
-        { _id: 2, name: "Song2" },
-        { _id: 3, name: "Song3" },
-      ];
-      const getSong = loadOneSongActionCreator([{ _id: 1, name: "Song" }]);
-
-      const result = songSlice(initialState, getSong);
-
-      expect(result).toEqual([[{ _id: 1, name: "Song" }]]);
     });
   });
 });

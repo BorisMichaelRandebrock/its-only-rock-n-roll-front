@@ -15,6 +15,12 @@ const SongStyle = styled.div`
     align-items: center;
     margin-bottom: 20px;
   }
+  .song-detail__songtitle,
+  .song-detail__song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 
   .song-icon__container {
     margin: 0;
@@ -46,6 +52,10 @@ const SongStyle = styled.div`
     padding: 20px;
   }
 
+  .songDetail-header {
+    display: flex;
+    justify-content: center;
+  }
   ul {
     padding: 0 20px;
   }
@@ -69,40 +79,6 @@ const SongStyle = styled.div`
     margin-bottom: 20px;
   }
 
-  .song-container__monthDisplay,
-  .song-container__hourDisplay,
-  .song-container__locationDisplay,
-  .song-container__rarityDisplay {
-    padding: 5px;
-    width: 100%;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    i {
-      flex-grow: 1;
-    }
-    span {
-      flex-grow: 5;
-    }
-  }
-
-  .song-container__monthDisplay,
-  .song-container__hourDisplay {
-    background: ${theme.greenDark};
-    color: ${theme.greenDarkTextColor};
-    font-size: 1.3em;
-  }
-
-  .song-container__locationDisplay,
-  .song-container__rarityDisplay {
-    background: ${theme.brownLight};
-    color: ${theme.brownDarkTextColor};
-    font-size: 1em;
-    text-transform: uppercase;
-  }
-
   .song-container__button {
     margin-top: 10px;
   }
@@ -114,6 +90,19 @@ const SongStyle = styled.div`
     width: 100%;
     height: 45px;
     border-radius: 10px;
+  }
+  p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .song-details__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
   }
 `;
 
