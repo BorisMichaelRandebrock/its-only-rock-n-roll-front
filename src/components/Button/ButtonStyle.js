@@ -15,7 +15,6 @@ export const ButtonStyle = styled.button`
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  text-transform: uppercase;
 
   :active {
     transform: translateY(2px);

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import styledComponents from "styled-components";
-// import SongDetailsComponent from "./components/SongDetailsComponent/SongDetailsComponent";
 import Error404Page from "./pages/Error404Page/Error404Page";
 import SongCollectionPage from "./pages/SongCollectionPage/SongCollectionPage";
 import SongListPage from "./pages/SongListPage/SongListPage";
@@ -11,7 +10,6 @@ import UserLoginPage from "./pages/UserLoginPage/UserLoginPage";
 import UserRegisterPage from "./pages/UserRegisterPage/UserRegisterPage";
 import { loginActionCreator } from "./redux/features/userSlice";
 import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
-import { loginThunk } from "./redux/thunks/userThunks";
 import { loadSongsThunk } from "./redux/thunks/songThunks";
 
 const AppStyle = styledComponents.div`
@@ -30,7 +28,6 @@ function App() {
     if (token) {
       const { username } = jwtDecode(token);
       dispatch(loginActionCreator({ username }));
-      //navigate("/songlist");
     } else {
       navigate("/login");
     }

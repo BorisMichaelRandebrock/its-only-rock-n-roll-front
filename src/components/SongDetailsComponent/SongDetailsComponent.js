@@ -3,72 +3,53 @@ import SongStyle from "../Song/SongStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteSongThunk } from "../../redux/thunks/songThunks";
 
-// releaseDate,
-// lyrics,
-// guitarChords,
-// guitarTabs,
-// piano,
-// drums,
-// saxophone,
-// trumpets,
-// releaseDate
-
-const SongDetailsComponent = ({ song }) => {
+const SongDetailsComponent = () => {
   const dispatch = useDispatch();
-  //const song = useSelector((state) => state.song);
-  //const songDetails = songs.find((song) => song.id === songId);
+
+  const song = useSelector((state) => state.oneSong);
 
   const handleDelete = () => {
     dispatch(deleteSongThunk(song.id));
   };
 
   return (
-    <SongStyle song={song}>
-      <ul className="song-collection">
-        <li className="song-container__songtitle">
-          <span className="material-symbols-rounded">music_note</span>
-          <h2 className="song-collection__title">{`${song.songTitle}`}</h2>
-        </li>
-        <li className="song-collection__song">
-          <span className="material-symbols-rounded">person</span>
-          <h3 className="song-collection__artist">{`${song.artist}`}</h3>
-        </li>
-        <li className="song-collection__button">
-          <Button text="i'll take it!" styleType="primary" />
-          <button className="secondary" onClick={handleDelete}>
-            delete
-          </button>
-        </li>
-      </ul>
+    <SongStyle>
+      {song.artist && (
+        <>
+          <h1 className="songDetail-header">details</h1>
+          <ul className="song-collection">
+            <li className="song-container__songtitle">
+              <span className="material-symbols-rounded">music_note</span>
+              <h2 className="song-collection__title">{`${song.songTitle}`}</h2>
+            </li>
+            <li className="song-detail__song">
+              <span className="material-symbols-rounded">person</span>
+              <h3 className="song-detail__artist">{`${song.artist}`}</h3>
+            </li>
+            <li className="song-detail__document">
+              <p className="song-detail__release">
+                release date: {`${song.releaseDate}`}
+              </p>
+            </li>
+            {song.documents.map((document, index) => (
+              <li className="song-detail__document">
+                <p className="song-detail__lyrics">{`${document}: ${document}`}</p>
+              </li>
+            ))}
+            <li className="song-detail__youtube">
+              <video src={`${song.youtubevideo}`}></video>
+            </li>
+            <li className="song-details__button">
+              <Button text="edit" styleType="primary" />
+              <button className="secondary" onClick={handleDelete}>
+                delete
+              </button>
+            </li>
+          </ul>
+        </>
+      )}
     </SongStyle>
   );
 };
 
 export default SongDetailsComponent;
-
-{
-  /* <li>
-  <p>lyrics: `${lyrics}`</p>
-</li>
-<li>
-  <p>guitar chords: `${documents.guitarChords}'</p>
-</li>
-<li>
-  <p>guitar tabs: `${documents.guitarTabs}`</p>
-</li>
-<li>
-  <p>piano: `${documents.piano}`</p>
-</li>
-<li>
-  <p>drums: `${documents.drums}`</p>
-</li>
-<li>
-  <p>saxophone: `${documents.saxophone}`</p>
-</li>
-<li>
-  <p>trumpets: `${documents.trumpets}`</p>
-</li>
-<li>
-  <video src=""></video>
-</li> */
-}
