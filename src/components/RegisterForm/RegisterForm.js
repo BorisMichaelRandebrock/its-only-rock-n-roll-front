@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerThunk } from "../../redux/thunks/userThunks";
 import Button from "../Button/Button";
 import PageStyle from "./../PageStyle";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const blankFields = {
     name: "",
     username: "",
@@ -40,6 +40,7 @@ const RegisterForm = () => {
     event.preventDefault();
     dispatch(registerThunk(userData));
     setUserData(blankFields);
+    navigate("/login");
   };
 
   return (
