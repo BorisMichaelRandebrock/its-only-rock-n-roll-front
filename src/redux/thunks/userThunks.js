@@ -1,9 +1,15 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { correctAction, wrongAction } from "../../modals/modals";
 import { loginActionCreator } from "../features/userSlice";
 
 export const registerThunk = (userData) => async (dispatch) => {
-  await axios.post(`${process.env.REACT_APP_API_URL}user/register`, userData);
+  try {
+    await axios.post(`${process.env.REACT_APP_API_URL}user/register`, userData);
+    correctAction("user created successfully!");
+  } catch (error) {
+    wrongAction("user already exists!");
+  }
 };
 
 export const loginThunk = (userData) => async (dispatch) => {
@@ -17,5 +23,8 @@ export const loginThunk = (userData) => async (dispatch) => {
     localStorage.setItem("token", data.token);
 
     dispatch(loginActionCreator(username));
-  } catch (error) {}
+    correctAction("user logged in successfully!");
+  } catch (error) {
+    wrongAction("wrong username or password!");
+  }
 };

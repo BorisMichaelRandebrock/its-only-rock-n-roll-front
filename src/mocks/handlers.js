@@ -1,4 +1,3 @@
-// src/mocks/handlers.js
 import { rest } from "msw";
 
 export const handlers = [
@@ -6,7 +5,3 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ token: "mockTokencito" }));
   }),
 ];
-
-// export const handlers = [
-//   // Handles a POST /login request
-//   rest.post('/login', null)

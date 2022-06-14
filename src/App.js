@@ -12,6 +12,8 @@ import { loginActionCreator } from "./redux/features/userSlice";
 import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
 import { loadSongsThunk } from "./redux/thunks/songThunks";
 import SongFormPage from "./pages/SongFormPage/SongFormPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AppStyle = styledComponents.div`
   display: flex;
@@ -52,6 +54,17 @@ function App() {
           <Route path="/404" element={<Error404Page />} />
           <Route path="/*" element={<Error404Page />} />
         </Routes>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </AppStyle>
     </>
   );

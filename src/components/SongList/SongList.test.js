@@ -20,5 +20,14 @@ describe("Given the SongList component", () => {
 
       expect(testElement).toBeInTheDocument();
     });
+    test("Then a li should be present with the key song", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongList />
+          </Provider>
+        </BrowserRouter>
+      );
+    });
   });
 });

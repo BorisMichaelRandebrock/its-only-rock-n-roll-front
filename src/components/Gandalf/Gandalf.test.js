@@ -35,4 +35,28 @@ describe("Given a Gandalf component", () => {
       expect(mockUseNavigate).toHaveBeenCalledWith(loginPagePath);
     });
   });
+  describe("When rendered and the user is logged in", () => {
+    test("Then it should render the children", () => {
+      mockLogged = true;
+
+      const mockUserSlice = createSlice({
+        name: "user",
+        initialState: { logged: mockLogged },
+        reducers: {},
+      });
+      const mockStore = configureStore({
+        reducer: { user: mockUserSlice.reducer },
+      });
+
+      render(
+        <Provider store={mockStore}>
+          <Gandalf>
+            <p>Children</p>
+          </Gandalf>
+        </Provider>
+      );
+
+      expect(mockUseNavigate).not.toHaveBeenCalled();
+    });
+  });
 });
