@@ -2,12 +2,17 @@ import SongStyle from "./SongStyle";
 import Button from "../Button/Button";
 import { useDispatch } from "react-redux";
 import { deleteSongThunk } from "../../redux/thunks/songThunks";
+import { useNavigate } from "react-router-dom";
 
 const SongComponent = ({ song: { artist, songTitle, _id } }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleDelete = () => {
     dispatch(deleteSongThunk(_id));
+  };
+  const goToDetailPage = () => {
+    navigate(`/details/${_id}`);
   };
 
   return (
@@ -22,7 +27,7 @@ const SongComponent = ({ song: { artist, songTitle, _id } }) => {
           <h3 className="song-collection__artist">{`${artist}`}</h3>
         </li>
         <li className="song-collection__button">
-          <Button text="details" styleType="primary" />
+          <Button text="details" styleType="primary" action={goToDetailPage} />
           <button className="secondary" onClick={handleDelete}>
             delete
           </button>
