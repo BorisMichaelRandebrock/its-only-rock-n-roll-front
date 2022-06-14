@@ -5,9 +5,7 @@ const SongStyle = styled.div`
   border-radius: 10px;
   border: 2px solid black;
   padding: 30px;
-  margin: 30px 0;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 30px 20px;
 
   .song-container__songtitle,
   .song-collection__song {
@@ -38,27 +36,24 @@ const SongStyle = styled.div`
     right: 0;
     top: -60px;
   }
-
+  /* 
   .song-icon__image {
     width: auto;
     height: 70px;
-  }
+  } */
 
   .song-container {
     width: inherit;
     margin: 0;
     display: flex;
     flex-direction: column;
-    padding: 20px;
   }
 
   .songDetail-header {
     display: flex;
     justify-content: center;
   }
-  ul {
-    padding: 0 20px;
-  }
+
   .song-collection__button {
     display: flex;
     flex-direction: column;

@@ -11,6 +11,7 @@ import UserRegisterPage from "./pages/UserRegisterPage/UserRegisterPage";
 import { loginActionCreator } from "./redux/features/userSlice";
 import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
 import { loadSongsThunk } from "./redux/thunks/songThunks";
+import SongFormPage from "./pages/SongFormPage/SongFormPage";
 
 const AppStyle = styledComponents.div`
   display: flex;
@@ -47,6 +48,7 @@ function App() {
           <Route path="/songlist" element={<SongListPage />} />
           <Route path="/collection" element={<SongCollectionPage />} />
           <Route path="/details/:id" element={<SongDetailsPage />} />
+          <Route path="/form" element={<SongFormPage />} />
           <Route path="/404" element={<Error404Page />} />
           <Route path="*" element={<Error404Page />} />
         </Routes>

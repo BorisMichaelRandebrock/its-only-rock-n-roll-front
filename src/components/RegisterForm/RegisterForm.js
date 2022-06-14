@@ -77,9 +77,7 @@ const RegisterForm = () => {
           onChange={onChange}
           placeholder="password"
         />
-        {/* <button disabled={buttonDisabled} type="submit" className="form-button">
-          register
-        </button> */}
+
         <div className="submit-button">
           <Button
             disabled={buttonDisabled}
