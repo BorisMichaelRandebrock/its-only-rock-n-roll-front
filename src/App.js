@@ -50,7 +50,7 @@ function App() {
           <Route path="/details/:id" element={<SongDetailsPage />} />
           <Route path="/form" element={<SongFormPage />} />
           <Route path="/404" element={<Error404Page />} />
-          <Route path="*" element={<Error404Page />} />
+          <Route path="/*" element={<Error404Page />} />
         </Routes>
       </AppStyle>
     </>
