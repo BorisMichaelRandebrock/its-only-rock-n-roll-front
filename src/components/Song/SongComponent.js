@@ -22,7 +22,7 @@ const SongComponent = ({ song: { artist, songTitle, _id } }) => {
           <h3 className="song-collection__artist">{`${artist}`}</h3>
         </li>
         <li className="song-collection__button">
-          <Button text="i'll take it!" styleType="primary" />
+          <Button text="details" styleType="primary" />
           <button className="secondary" onClick={handleDelete}>
             delete
           </button>

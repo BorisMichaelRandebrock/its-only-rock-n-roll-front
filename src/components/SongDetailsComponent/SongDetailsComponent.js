@@ -18,21 +18,21 @@ const SongDetailsComponent = () => {
         <>
           <h1 className="songDetail-header">details</h1>
           <ul className="song-collection">
-            <li className="song-container__songtitle">
+            <li className="song-container__songtitle" key={song.songTitle}>
               <span className="material-symbols-rounded">music_note</span>
               <h2 className="song-collection__title">{`${song.songTitle}`}</h2>
             </li>
-            <li className="song-detail__song">
+            <li className="song-detail__song" key={song.artist}>
               <span className="material-symbols-rounded">person</span>
               <h3 className="song-detail__artist">{`${song.artist}`}</h3>
             </li>
-            <li className="song-detail__document">
+            <li className="song-detail__document" key={song.releaseDate}>
               <p className="song-detail__release">
                 release date: {`${song.releaseDate}`}
               </p>
             </li>
             {song.documents.map((document, index) => (
-              <li className="song-detail__document">
+              <li className="song-detail__document" key={document}>
                 <p className="song-detail__lyrics">{`${document}: ${document}`}</p>
               </li>
             ))}
