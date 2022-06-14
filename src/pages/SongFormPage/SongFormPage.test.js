@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import SongForm from "../../components/SongForm/SongForm";
 import store from "../../redux/store/store";
+import SongFormPage from "./SongFormPage";
 
 describe("Given a SongFormPage", () => {
   describe("When the page is rendered", () => {
@@ -10,7 +11,7 @@ describe("Given a SongFormPage", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <SongForm />
+            <SongFormPage />
           </Provider>
         </BrowserRouter>
       );
