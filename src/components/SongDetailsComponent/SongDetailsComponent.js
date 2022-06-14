@@ -2,14 +2,20 @@ import Button from "../Button/Button";
 import SongStyle from "../Song/SongStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteSongThunk } from "../../redux/thunks/songThunks";
+import { useNavigate } from "react-router-dom";
 
 const SongDetailsComponent = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const song = useSelector((state) => state.oneSong);
 
   const handleDelete = () => {
     dispatch(deleteSongThunk(song.id));
+  };
+
+  const goToSonglistPage = () => {
+    navigate("/songlist");
   };
 
   return (
@@ -40,7 +46,11 @@ const SongDetailsComponent = () => {
               <video src={`${song.youtubevideo}`}></video>
             </li>
             <li className="song-details__button">
-              <Button text="edit" styleType="primary" />
+              <Button
+                text="home"
+                styleType="primary"
+                action={goToSonglistPage}
+              />
               <button className="secondary" onClick={handleDelete}>
                 delete
               </button>
