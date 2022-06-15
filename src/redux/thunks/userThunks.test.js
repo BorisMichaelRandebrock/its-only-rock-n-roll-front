@@ -1,7 +1,8 @@
 import axios from "axios";
 import "../../../src/mocks/server";
 import { loginActionCreator } from "../features/userSlice";
-import { loginThunk } from "./userThunks";
+import { loginThunk, registerThunk } from "./userThunks";
+import * as toasters from "../../modals/modals";
 
 jest.mock("jwt-decode", () => () => ({ id: "1234", username: "mockUser" }));
 
@@ -107,6 +108,43 @@ describe("Given the user registerThunks function", () => {
       thunk(dispatch);
 
       expect(dispatch).not.toHaveBeenCalledWith(expectedAction);
+    });
+  });
+});
+
+describe("Given the registerUserThunk", () => {
+  describe("When invoked but an error occurs", () => {
+    test("Then it should call wrongAction toastify", async () => {
+      const mockWrongAction = jest.spyOn(toasters, "wrongAction");
+
+      axios.load = jest.fn().mockReturnValueOnce({
+        status: 404,
+      });
+      const dispatch = jest.fn();
+
+      const thunk = registerThunk("id");
+      await thunk(dispatch);
+
+      expect(mockWrongAction).not.toHaveBeenLastCalledWith(
+        "user already exists"
+      );
+    });
+  });
+  describe("When invoked", () => {
+    test("Then it should show correctAction toastify", async () => {
+      const mockCorrectAction = jest.spyOn(toasters, "correctAction");
+
+      axios.load = jest.fn().mockReturnValueOnce({
+        status: 201,
+      });
+      const dispatch = jest.fn();
+
+      const thunk = registerThunk("id");
+      await thunk(dispatch);
+
+      expect(mockCorrectAction).toHaveBeenLastCalledWith(
+        "user created successfully!"
+      );
     });
   });
 });
