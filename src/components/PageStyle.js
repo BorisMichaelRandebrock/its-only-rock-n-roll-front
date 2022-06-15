@@ -11,11 +11,12 @@ const PageStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    //  margin: 10px 0;
     visibility: hidden;
   }
   .logo {
     margin-top: 25px;
+    width: 250px;
+    height: 250px;
   }
   input {
     width: 100%;

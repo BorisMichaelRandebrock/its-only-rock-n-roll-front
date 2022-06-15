@@ -11,10 +11,10 @@ import {
   loadSongsActionCreator,
 } from "../features/songSlice";
 
-const url = process.env.REACT_APP_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const loadSongsThunk = () => async (dispatch) => {
-  const { data } = await axios.get(`${url}songs`);
+  const { data } = await axios.get(`${apiUrl}songs`);
   loading("Loading songs...");
   dispatch(loadSongsActionCreator(data));
   loadingOff();

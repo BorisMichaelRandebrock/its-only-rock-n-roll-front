@@ -6,7 +6,7 @@ const songSlice = createSlice({
   reducers: {
     loadSongs: (song, action) => [...action.payload],
     deleteSong: (song, action) =>
-      song.filter((song) => song._id !== action.payload),
+      song.filter((song1) => song1._id !== action.payload),
     createSong: (song, action) => [...song, action.payload],
   },
 });
