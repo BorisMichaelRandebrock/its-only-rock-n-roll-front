@@ -11,20 +11,19 @@ const SongForm = () => {
 
   const initialForm = {
     artist: "",
+    releaseDate: "",
     youtubevideo: "",
     songTitle: "",
-    documents: [
-      {
-        lyrics: "",
-        guitarTabs: "",
-        guitarChords: "",
-        bassTabs: "",
-        piano: "",
-        drums: "",
-        saxophone: "",
-        trumpets: "",
-      },
-    ],
+    documents: {
+      lyrics: "",
+      guitarTabs: "",
+      guitarChords: "",
+      bassTabs: "",
+      piano: "",
+      drums: "",
+      saxophone: "",
+      trumpets: "",
+    },
   };
 
   const [formData, setFormData] = useState(initialForm);
@@ -33,6 +32,62 @@ const SongForm = () => {
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
+    });
+  };
+
+  const updateLyrics = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, lyrics: event.target.value },
+    });
+  };
+
+  const updateGuitarTabs = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, guitarTabs: event.target.value },
+    });
+  };
+
+  const updateGuitarChords = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, guitarChords: event.target.value },
+    });
+  };
+
+  const updateBassTabs = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, bassTabs: event.target.value },
+    });
+  };
+
+  const updatePiano = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, piano: event.target.value },
+    });
+  };
+
+  const updateDrums = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, drums: event.target.value },
+    });
+  };
+
+  const updateSaxophone = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, saxophone: event.target.value },
+    });
+  };
+
+  const updateTrumpets = (event) => {
+    setFormData({
+      ...formData,
+      documents: { ...formData.documents, trumpets: event.target.value },
     });
   };
 
@@ -57,28 +112,28 @@ const SongForm = () => {
               id="artist"
               value={formData.artist}
               onChange={updateDataInput}
-              placeholder="url:"
+              placeholder="artist: "
             />
           </label>
           <span />
           <label htmlFor="songTitle">
-            songTitle:
+            song title:
             <input
               type="text"
               id="songTitle"
               value={formData.songTitle}
               onChange={updateDataInput}
-              placeholder="url:"
+              placeholder="song title: "
             />
           </label>
           <label htmlFor="releaseDate">
-            releaseDate:
+            release date:
             <input
               type="text"
               id="releaseDate"
               value={formData.releaseDate}
               onChange={updateDataInput}
-              placeholder="url:"
+              placeholder="date: "
             />
           </label>
           <label htmlFor="lyrics">
@@ -86,8 +141,8 @@ const SongForm = () => {
             <input
               type="text"
               id="lyrics"
-              value={formData.lyrics}
-              onChange={updateDataInput}
+              value={formData.documents.lyrics}
+              onChange={updateLyrics}
               placeholder="url:"
             />
           </label>
@@ -96,8 +151,8 @@ const SongForm = () => {
             <input
               type="text"
               id="guitarTabs"
-              value={formData.guitarTabs}
-              onChange={updateDataInput}
+              value={formData.documents.guitarTabs}
+              onChange={updateGuitarTabs}
               placeholder="url:"
             />
           </label>
@@ -106,8 +161,8 @@ const SongForm = () => {
             <input
               type="text"
               id="guitarChords"
-              value={formData.guitarChords}
-              onChange={updateDataInput}
+              value={formData.documents.guitarChords}
+              onChange={updateGuitarChords}
               placeholder="url:"
             />
           </label>
@@ -116,8 +171,8 @@ const SongForm = () => {
             <input
               type="text"
               id="bassTabs"
-              value={formData.bassTabs}
-              onChange={updateDataInput}
+              value={formData.documents.bassTabs}
+              onChange={updateBassTabs}
               placeholder="url::"
             />
           </label>
@@ -127,7 +182,7 @@ const SongForm = () => {
               type="text"
               id="piano"
               value={formData.documents.piano}
-              onChange={updateDataInput}
+              onChange={updatePiano}
               placeholder="url:"
             />
           </label>
@@ -137,7 +192,7 @@ const SongForm = () => {
               type="text"
               id="drums"
               value={formData.documents.drums}
-              onChange={updateDataInput}
+              onChange={updateDrums}
               placeholder="url::"
             />
           </label>
@@ -146,8 +201,8 @@ const SongForm = () => {
             <input
               type="text"
               id="saxophone"
-              value={formData.saxophone}
-              onChange={updateDataInput}
+              value={formData.documents.saxophone}
+              onChange={updateSaxophone}
               placeholder="url:"
             />
           </label>
@@ -156,8 +211,8 @@ const SongForm = () => {
             <input
               type="text"
               id="trumpets"
-              value={formData.trumpets}
-              onChange={updateDataInput}
+              value={formData.documents.trumpets}
+              onChange={updateTrumpets}
               placeholder="url:"
             />
           </label>

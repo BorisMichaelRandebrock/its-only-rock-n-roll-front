@@ -14,6 +14,7 @@ import { loadSongsThunk } from "./redux/thunks/songThunks";
 import SongFormPage from "./pages/SongFormPage/SongFormPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Gandalf from "./components/Gandalf/Gandalf";
 
 const AppStyle = styledComponents.div`
   display: flex;
@@ -47,7 +48,14 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/register" element={<UserRegisterPage />} />
           <Route path="/login" element={<UserLoginPage />} />
-          <Route path="/songlist" element={<SongListPage />} />
+          <Route
+            path="/songlist"
+            element={
+              <Gandalf>
+                <SongListPage />
+              </Gandalf>
+            }
+          />
           <Route path="/collection" element={<SongCollectionPage />} />
           <Route path="/details/:id" element={<SongDetailsPage />} />
           <Route path="/form" element={<SongFormPage />} />

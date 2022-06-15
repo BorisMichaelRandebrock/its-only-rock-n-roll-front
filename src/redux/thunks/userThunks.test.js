@@ -49,10 +49,26 @@ describe("Given the userThunks function", () => {
       const thunk = loginThunk(inputData);
 
       await thunk(dispatch);
-      // const error = new Error();
 
       expect(dispatch).not.toHaveBeenCalledWith(expectedAction);
-      // expect(error).toHaveBeenCalled();
+    });
+    test("Then it should show a toast with a message", async () => {
+      const dispatch = jest.fn();
+      const inputData = { username: "mockUser", password: "4321" };
+
+      axios.post = await jest
+        .fn()
+        .mockResolvedValue({ data: { token: "mockToken" }, status: 500 });
+
+      const userData = { id: "15234", username: "mockUser" };
+
+      const expectedAction = loginActionCreator(userData);
+
+      const thunk = loginThunk(inputData);
+
+      await thunk(dispatch);
+
+      expect(dispatch).not.toHaveBeenCalledWith(expectedAction);
     });
   });
 });
