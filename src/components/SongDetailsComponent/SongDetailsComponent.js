@@ -37,11 +37,40 @@ const SongDetailsComponent = () => {
                 release date: {`${song.releaseDate}`}
               </p>
             </li>
-            {song.documents.map((document, index) => (
-              <li className="song-detail__document" key={document}>
-                <p className="song-detail__lyrics">{`${document}: ${document}`}</p>
-              </li>
-            ))}
+            <li className="song-detail__document" key={song.documents.lyrics}>
+              <p className="song-detail__lyrics">{`lyrics: ${song.documents.lyrics}`}</p>
+            </li>
+            <li
+              className="song-detail__document"
+              key={song.documents.guitarTabs}
+            >
+              <p className="song-detail__guitarTabs">{`guitar tabs: ${song.documents.guitarTabs}`}</p>
+            </li>
+            <li
+              className="song-detail__document"
+              key={song.documents.guitarChords}
+            >
+              <p className="song-detail__guitarChords">{`guitar chords: ${song.documents.guitarChords}`}</p>
+            </li>
+            <li className="song-detail__document" key={song.documents.bassTabs}>
+              <p className="song-detail__bassTabs">{`bass tabs: ${song.documents.bassTabs}`}</p>
+            </li>
+            <li className="song-detail__document" key={song.documents.piano}>
+              <p className="song-detail__piano">{`piano: ${song.documents.piano}`}</p>
+            </li>
+            <li className="song-detail__document" key={song.documents.drums}>
+              <p className="song-detail__drums">{`drums: ${song.documents.drums}`}</p>
+            </li>
+            <li
+              className="song-detail__document"
+              key={song.documents.saxophone}
+            >
+              <p className="song-detail__saxophone">{`saxophone: ${song.documents.saxophone}`}</p>
+            </li>
+            <li className="song-detail__document" key={song.documents.trumpets}>
+              <p className="song-detail__trumpets">{`trumpets: ${song.documents.trumpets}`}</p>
+            </li>
+
             <li className="song-detail__youtube">
               <video src={`${song.youtubevideo}`}></video>
             </li>

@@ -1,22 +1,21 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const ManoloElDelBombo = ({ children }) => {
+const Gandalf = ({ children }) => {
   const navigate = useNavigate();
-  const { logged } = useSelector((state) => state.user);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    if (!logged) {
+    if (!token) {
       navigate("/login");
     }
-  }, [logged, navigate]);
+  }, [token, navigate]);
 
-  if (logged) {
+  if (token) {
     return children;
   } else {
     return null;
   }
 };
 
-export default ManoloElDelBombo;
+export default Gandalf;
