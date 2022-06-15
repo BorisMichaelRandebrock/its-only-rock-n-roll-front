@@ -24,50 +24,41 @@ const SongDetailsComponent = () => {
         <>
           <h1 className="songDetail-header">details</h1>
           <ul className="song-collection">
-            <li className="song-container__songtitle" key={song.songTitle}>
+            <li className="song-container__songtitle">
               <span className="material-symbols-rounded">music_note</span>
               <h2 className="song-collection__title">{`${song.songTitle}`}</h2>
             </li>
-            <li className="song-detail__song" key={song.artist}>
+            <li className="song-detail__song">
               <span className="material-symbols-rounded">person</span>
               <h3 className="song-detail__artist">{`${song.artist}`}</h3>
             </li>
-            <li className="song-detail__document" key={song.releaseDate}>
+            <li className="song-detail__document">
               <p className="song-detail__release">
                 release date: {`${song.releaseDate}`}
               </p>
             </li>
-            <li className="song-detail__document" key={song.documents.lyrics}>
+            <li className="song-detail__document">
               <p className="song-detail__lyrics">{`lyrics: ${song.documents.lyrics}`}</p>
             </li>
-            <li
-              className="song-detail__document"
-              key={song.documents.guitarTabs}
-            >
+            <li className="song-detail__document">
               <p className="song-detail__guitarTabs">{`guitar tabs: ${song.documents.guitarTabs}`}</p>
             </li>
-            <li
-              className="song-detail__document"
-              key={song.documents.guitarChords}
-            >
+            <li className="song-detail__document">
               <p className="song-detail__guitarChords">{`guitar chords: ${song.documents.guitarChords}`}</p>
             </li>
-            <li className="song-detail__document" key={song.documents.bassTabs}>
+            <li className="song-detail__document">
               <p className="song-detail__bassTabs">{`bass tabs: ${song.documents.bassTabs}`}</p>
             </li>
-            <li className="song-detail__document" key={song.documents.piano}>
+            <li className="song-detail__document">
               <p className="song-detail__piano">{`piano: ${song.documents.piano}`}</p>
             </li>
-            <li className="song-detail__document" key={song.documents.drums}>
+            <li className="song-detail__document">
               <p className="song-detail__drums">{`drums: ${song.documents.drums}`}</p>
             </li>
-            <li
-              className="song-detail__document"
-              key={song.documents.saxophone}
-            >
+            <li className="song-detail__document">
               <p className="song-detail__saxophone">{`saxophone: ${song.documents.saxophone}`}</p>
             </li>
-            <li className="song-detail__document" key={song.documents.trumpets}>
+            <li className="song-detail__document">
               <p className="song-detail__trumpets">{`trumpets: ${song.documents.trumpets}`}</p>
             </li>
 

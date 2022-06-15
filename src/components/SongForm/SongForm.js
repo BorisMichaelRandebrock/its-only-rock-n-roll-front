@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createSongThunk } from "../../redux/thunks/songThunks";
-import SongListStyles from "./SongFormStyle";
+import SongListStyles from "./SongFormStyles";
 
 const SongForm = () => {
   const navigate = useNavigate();
