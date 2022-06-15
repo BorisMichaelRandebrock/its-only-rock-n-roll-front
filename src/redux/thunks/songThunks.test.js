@@ -10,6 +10,7 @@ import {
   loadOneSongThunk,
   loadSongsThunk,
 } from "./songThunks";
+import * as toasters from "../../modals/modals";
 
 describe("Given the loadSongsActionCreator function", () => {
   describe("When the loadSongsThunk function is called", () => {
@@ -91,6 +92,58 @@ describe("Given the createSongThunk function", () => {
       await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given the createSongActionCreator function", () => {
+  describe("When the createSongThunk is invoked but an error occurs", () => {
+    test("Then it should call wrongAction toastify", async () => {
+      const mockWrongAction = jest.spyOn(toasters, "wrongAction");
+
+      axios.post = jest.fn().mockRejectedValueOnce(new Error());
+      const dispatch = jest.fn();
+
+      const thunk = await createSongThunk(mockSongs[0], "testToken");
+      await thunk(dispatch);
+
+      expect(mockWrongAction).toHaveBeenLastCalledWith("error creating song!");
+    });
+  });
+});
+
+describe("Given the deleteSongThunk toast", () => {
+  describe("When the deleteSongThunk is invoked but an error occurs", () => {
+    test("Then it should call wrongAction toastify", async () => {
+      const mockWrongAction = jest.spyOn(toasters, "wrongAction");
+
+      axios.delete = jest.fn().mockReturnValueOnce({
+        status: 404,
+      });
+      const dispatch = jest.fn();
+
+      const thunk = deleteSongThunk("id");
+      await thunk(dispatch);
+
+      expect(mockWrongAction).toHaveBeenLastCalledWith("error deleting song!");
+    });
+  });
+});
+
+describe("Gine the loadSongThunk", () => {
+  describe("When invoked but an error occurs", () => {
+    test("Then it should call wrongAction toastify", async () => {
+      const mockWrongAction = jest.spyOn(toasters, "wrongAction");
+
+      axios.load = jest.fn().mockReturnValueOnce({
+        status: 404,
+      });
+      const dispatch = jest.fn();
+
+      const thunk = loadOneSongThunk("id");
+      await thunk(dispatch);
+
+      expect(mockWrongAction).toHaveBeenLastCalledWith("error loading song!");
     });
   });
 });
