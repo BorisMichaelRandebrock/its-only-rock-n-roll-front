@@ -74,3 +74,227 @@ describe("Given the SongForm component", () => {
     });
   });
 });
+
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
+}));
+
+jest.mock("../../redux/thunks/userThunks", () => ({
+  createSongsThunk: jest.fn(),
+}));
+
+describe("Given the SongForm component rendered", () => {
+  describe("When the user fills the fields", () => {
+    test("Then it should dispatch the createSongThunk", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const artist = screen.getByRole("textbox", {
+        name: "artist:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(artist, "test");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the guitarTabs", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const songTitle = screen.getByRole("textbox", {
+        name: "song title:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(songTitle, "songTitle");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the Lyrics", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const lyrics = screen.getByRole("textbox", {
+        name: "lyrics:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(lyrics, "lyrics");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the guitarChords", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const guitarChords = screen.getByRole("textbox", {
+        name: "guitar chords:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(guitarChords, "guitarChords");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the bassTabs", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const bassTabs = screen.getByRole("textbox", {
+        name: "bass tabs:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(bassTabs, "bassTabs");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the piano", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const piano = screen.getByRole("textbox", {
+        name: "piano:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(piano, "piano");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the drums", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const drums = screen.getByRole("textbox", {
+        name: "drums:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(drums, "drums");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the saxophone", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const saxophone = screen.getByRole("textbox", {
+        name: "saxophone:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(saxophone, "saxophone");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the trumpets", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const trumpets = screen.getByRole("textbox", {
+        name: "trumpets:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(trumpets, "trumpets");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the youtubeVideo", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const youtubeVideo = screen.getByRole("textbox", {
+        name: "youtube:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(youtubeVideo, "youtubeVideo");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+    test("Then it should dispatch the createSongThunk for the guitarTabs visible", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const guitarTabs = screen.getByRole("textbox", {
+        name: "guitar tabs:",
+      });
+      const button = screen.getByText("save");
+
+      userEvent.type(guitarTabs, "guitarTabs");
+      userEvent.click(button);
+
+      expect(mockDispatch).toBeCalled();
+    });
+  });
+});

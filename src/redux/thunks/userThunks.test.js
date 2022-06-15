@@ -72,3 +72,41 @@ describe("Given the userThunks function", () => {
     });
   });
 });
+
+describe("Given the user registerThunks function", () => {
+  describe("When the user is registering correctly", () => {
+    test("Then it should show the message 'user created successfully!'", async () => {
+      const dispatch = jest.fn();
+      const inputData = { username: "mockUser", password: "4321" };
+
+      axios.post = await jest
+        .fn()
+        .mockResolvedValue({ data: { token: "mockToken" }, status: 200 });
+
+      const userData = { id: "1234", username: "mockUser" };
+
+      const expectedAction = loginActionCreator(userData);
+
+      const thunk = loginThunk(inputData);
+
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
+    });
+    test("Then it", () => {
+      const dispatch = jest.fn();
+      const inputData = { username: "mockUser", password: "4321" };
+
+      axios.post = jest.fn().mockResolvedValue({});
+      const userData = { id: "1234", username: "mockUser" };
+
+      const expectedAction = loginActionCreator(userData);
+
+      const thunk = loginThunk(inputData);
+
+      thunk(dispatch);
+
+      expect(dispatch).not.toHaveBeenCalledWith(expectedAction);
+    });
+  });
+});
