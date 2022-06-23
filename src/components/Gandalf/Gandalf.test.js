@@ -3,9 +3,6 @@ import { Provider } from "react-redux";
 import { render, screen } from "@testing-library/react";
 import Gandalf from "./Gandalf";
 import mockSongs, { mockSong } from "../../mocks/mockSongs";
-
-// import { BrowserRouter } from "react-router-dom";
-// import SonglistPage from "../../pages/SongListPage/SongListPage";
 import SonglistPage from "../../pages/SongListPage/SongListPage";
 import { BrowserRouter } from "react-router-dom";
 import SongComponent from "../Song/SongComponent";

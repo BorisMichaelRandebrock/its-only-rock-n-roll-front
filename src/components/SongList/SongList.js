@@ -10,7 +10,7 @@ const SongList = () => {
       <h1>Songlist</h1>
       <ul>
         {songs.map((song, index) => (
-          <li key={index}>
+          <li>
             <SongComponent song={song} />
           </li>
         ))}

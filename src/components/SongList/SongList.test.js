@@ -29,5 +29,20 @@ describe("Given the SongList component", () => {
         </BrowserRouter>
       );
     });
+    test("Then a listItem should be present with the key song", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SongList />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const testElement = screen.getByRole("heading", {
+        name: "Songlist",
+      });
+
+      expect(testElement).toBeInTheDocument();
+    });
   });
 });

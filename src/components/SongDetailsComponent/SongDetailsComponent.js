@@ -18,6 +18,11 @@ const SongDetailsComponent = () => {
     navigate("/songlist");
   };
 
+  // const deleteAndGoToSonglistPage = () => {
+  //   handleDelete();
+  //   goToSonglistPage();
+  // };
+
   return (
     <SongStyle>
       {song.artist && (

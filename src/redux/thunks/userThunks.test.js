@@ -130,7 +130,7 @@ describe("Given the registerUserThunk", () => {
       );
     });
   });
-  describe("When invoked", () => {
+  describe("When invoked succesfully", () => {
     test("Then it should show correctAction toastify", async () => {
       const mockCorrectAction = jest.spyOn(toasters, "correctAction");
 
